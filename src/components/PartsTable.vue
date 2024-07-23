@@ -46,7 +46,8 @@ export default {
     data() {
         return {
             visibleSubrows: {},
-            items: []
+            items: [],
+            hoveredRow: null
         }
     },
     created() {
