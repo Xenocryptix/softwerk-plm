@@ -20,6 +20,7 @@
                         <td class="table-cell">{{ part.classification }}</td>
                         <td class="table-cell">{{ part.state }}</td>
                     </tr>
+                    <transition-group>
                         <template v-if="visibleSubrows[part.id] && part.bomParts && part.bomParts.length > 0">
                             <tr v-for="bomPart in part.bomParts" :key="bomPart.id" class="table-row-subset">
                                 <td class="table-cell">{{ bomPart.item_number }}</td>
@@ -29,6 +30,7 @@
                                 <td class="table-cell">{{ bomPart.state }}</td>
                             </tr>
                         </template>
+                    </transition-group>
                 </template>
             </tbody>
         </table>
@@ -45,7 +47,8 @@ export default {
             visibleSubrows: {},
             items: [],
             hoveredRow: null,
-            token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjcxMjlBNUVFNEQxQUIwOTc3QjE4Q0Q0RUZFOTY0RjQ4MDgzQzA1NURSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImNTbWw3azBhc0pkN0dNMU9fcFpQU0FnOEJWMCJ9.eyJuYmYiOjE3MjE3Nzk4OTEsImV4cCI6MTcyMTc4MzQ5MSwiaXNzIjoiT0F1dGhTZXJ2ZXIiLCJhdWQiOlsiSW5ub3ZhdG9yIiwiT0F1dGhTZXJ2ZXIvcmVzb3VyY2VzIl0sImNsaWVudF9pZCI6IklPTUFwcCIsInN1YiI6InJvb3QiLCJhdXRoX3RpbWUiOjE3MjE3Nzk4OTEsImlkcCI6ImxvY2FsIiwidXNlcm5hbWUiOiJyb290IiwiZGF0YWJhc2UiOiJTb2Z0d2VyayIsImp0aSI6IjFFOEFGMTlBODVFNDBDQTVFMkZBMkI1MzhFRDQ1OEYzIiwiaWF0IjoxNzIxNzc5ODkxLCJzY29wZSI6WyJJbm5vdmF0b3IiXSwiYW1yIjpbInBhc3N3b3JkIl19.aNwu3Kd2_k5uNV05rEwlUMLFL2y01VGA8nUqtCaExgN2QH9nasHyPlPmg4MHt6uCK2eFaH1zryoPW25CDgO9eJ15FjJXGIKPmAsJVWTacmeAniNmvMcpvaGka7V_MSzJjwlXnApWMCqpHNkTTqPSXSHNF_2ECutJrc1uVzQn2PWCUsJZ8BbXBM1gKjYWP8utFTkQJZRSKGx8JBJlDKGizmKGiOkHmW99-UpCYQaatkBGcTF0OT1pgBzLZcAex3-a3SoSexJKiAv0gDWASTIL9RTrrvuAx5pQZmWQigyWuPO81FrxIHawgOSGV3y69Y2g1tFI85z6k5C8t5dCZsMORA'
+            token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjcxMjlBNUVFNEQxQUIwOTc3QjE4Q0Q0RUZFOTY0RjQ4MDgzQzA1NURSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImNTbWw3azBhc0pkN0dNMU9fcFpQU0FnOEJWMCJ9.eyJuYmYiOjE3MjE3ODQwMTIsImV4cCI6MTcyMTc4NzYxMiwiaXNzIjoiT0F1dGhTZXJ2ZXIiLCJhdWQiOlsiSW5ub3ZhdG9yIiwiT0F1dGhTZXJ2ZXIvcmVzb3VyY2VzIl0sImNsaWVudF9pZCI6IklPTUFwcCIsInN1YiI6InJvb3QiLCJhdXRoX3RpbWUiOjE3MjE3ODQwMTIsImlkcCI6ImxvY2FsIiwidXNlcm5hbWUiOiJyb290IiwiZGF0YWJhc2UiOiJTb2Z0d2VyayIsImp0aSI6IkEzQ0VEQjYxQjI3OUQxRDY4MkNDNzgzMTk5QUE2RUQyIiwiaWF0IjoxNzIxNzg0MDEyLCJzY29wZSI6WyJJbm5vdmF0b3IiXSwiYW1yIjpbInBhc3N3b3JkIl19.fMkqONgJfuJOb5UsgFH3uV6PeV2Q-NQYGpN9QhZ7mVzp1Z93roanG6uszvHnZPrft0_SNxaxyEqs80VNTzXVXtbUGcXKIUXeSOi4WubCHNg7cdCDYVqT4ZmyJ8zMlSIYzPVD2jjyJbb3bOgG64Jr7NItI2dTRPdGd8v2WPfZDZFtklcwAMW0qaNxKOXa96fuI1jzB6fH_pDZA-pfkxWNVY9vjxzqkwiS-oaO4d96KNk3DKHJDlvY98GuINiVrM0R6Uouo7oRdPgAlxQpCM46VGpbMJEC73ce6ZuixmQb3M18SnuKwvWdMKBOqu--ePM06YNPQr7d9uEW9dUMrgCBng'
+            //manually insert token from Postman if the auth() function is not working
         }
     },
     created() {
